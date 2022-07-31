@@ -19,18 +19,18 @@ scoreleftwrist=0;
 scorerightwrist=0;
 
 function preload() {
-song1=loadSound("Boyfriend.mp3");
-song2=loadSound("detalli.mp3");
-song3=loadSound("Firecracker.mp3");
-song4=loadSound("Friends.mp3");
-song5=loadSound("harekrishna.mp3");
-song6=loadSound("Qaafirana.mp3");
-song7=loadSound("sulthan.mp3");
-song8=loadSound("TheMonster.mp3");
-song9=loadSound("toofan.mp3");
-song10=loadSound("Zingaat.mp3");
-}
-
+    song1=loadSound("Boyfriend.mp3");
+    song2=loadSound("detalli.mp3");
+    song3=loadSound("Firecracker.mp3");
+    song4=loadSound("Friends.mp3");
+    song5=loadSound("harekrishna.mp3");
+    song6=loadSound("Qaafirana.mp3");
+    song7=loadSound("sulthan.mp3");
+    song8=loadSound("TheMonster.mp3");
+    song9=loadSound("toofan.mp3");
+    song10=loadSound("rangisari.mp3");
+    }
+    
 function setup() {
     
     canvas= createCanvas(500,400);
@@ -54,10 +54,7 @@ function draw(){
     stroke("black");
     if(scorerightwrist > 0.2)
     {
-
-    
-    circle(rightWristX,rightWristY,20);
-       
+    circle(rightWristX,rightWristY,20);    
     if(rightWristY>0 && rightWristY<= 100){
 
         document.getElementById("speedee").innerHTML= "Speed=0.5x";
@@ -122,7 +119,6 @@ function draw(){
     
         if(scoreleftwrist > 0.2)
         {
-         
             circle(leftWristX,leftWristY,20);
             InNumberLeftWristY= Number(leftWristY);
             removeDecimals=floor(InNumberLeftWristY);
@@ -138,20 +134,17 @@ function draw(){
             song8.setVolume(volume);
             song9.setVolume(volume);
             song10.setVolume(volume);
-            
         }
 
-        
-   
-    
+
 }
 function play() {
 
     song1.play();
     song1.setVolume(1);
     song1.rate(1);
-
-    
+    document.getElementById("stop").style.display="inline-block"
+    document.getElementById("play").style.display="none"
 }
 
 function gotPoses(results) {
@@ -159,16 +152,12 @@ function gotPoses(results) {
     if (results.length>0) {
 
         console.log(results);
-        leftWristX=results[0].pose.leftWrist.x;
+        leftWristX=results[0].pose.leftWrist.x-100;
         leftWristY=results[0].pose.leftWrist.y;
-        rightWristX=results[0].pose.rightWrist.x;
+        rightWristX=results[0].pose.rightWrist.x-55;
         rightWristY=results[0].pose.rightWrist.y;
         scoreleftwrist= results[0].pose.keypoints[9].score;
-
-        
-
-
-        
+        scorerightwrist= results[0].pose.keypoints[10].score;
     }
     
 }
@@ -195,26 +184,10 @@ function closeNav() {
 }
 
 function playBoyfriend() {
- song1.play();
- song1.setVolume(1)
- song1.rate(1);
- song2.stop()
- song3.stop()
- song4.stop()
- song5.stop()
- song6.stop()
- song7.stop()
- song8.stop()
- song9.stop()
- song10.stop()
- document.getElementById("play").style.display="none"
- document.getElementById("stop").style.display="inline-block"
-}
-function playDetalli() {
-    song2.play();
-    song2.setVolume(1)
-    song2.rate(1);
-    song1.stop()
+    song1.play();
+    song1.setVolume(1)
+    song1.rate(1);
+    song2.stop()
     song3.stop()
     song4.stop()
     song5.stop()
@@ -226,146 +199,162 @@ function playDetalli() {
     document.getElementById("play").style.display="none"
     document.getElementById("stop").style.display="inline-block"
    }
-   function playfire() {
-    song3.play();
-    song3.setVolume(1)
-    song3.rate(1);
-    song1.stop()
-    song2.stop()
-    song4.stop()
-    song5.stop()
-    song6.stop()
-    song7.stop()
-    song8.stop()
-    song9.stop()
-    song10.stop()
-    document.getElementById("play").style.display="none"
-    document.getElementById("stop").style.display="inline-block"
-   }
-
-   function playfriends() {
-    song4.play();
-    song4.setVolume(1)
-    song4.rate(1);
-    song1.stop()
-    song2.stop()
-    song3.stop()
-    song5.stop()
-    song6.stop()
-    song7.stop()
-    song8.stop()
-    song9.stop()
-    song10.stop()
-    document.getElementById("play").style.display="none"
-    document.getElementById("stop").style.display="inline-block"
-   }
-
-   function playharekrishna() {
-    song5.play();
-    song5.setVolume(1)
-    song5.rate(1);
-    song1.stop()
-    song2.stop()
-    song3.stop()
-    song4.stop()
-    song6.stop()
-    song7.stop()
-    song8.stop()
-    song9.stop()
-    song10.stop()
-    document.getElementById("play").style.display="none"
-    document.getElementById("stop").style.display="inline-block"
-   }
-
-   function playQaafirana() {
-    song6.play();
-    song6.setVolume(1)
-    song6.rate(1);
-    song1.stop()
-    song2.stop()
-    song3.stop()
-    song4.stop()
-    song5.stop()
-    song7.stop()
-    song8.stop()
-    song9.stop()
-    song10.stop()
-    document.getElementById("play").style.display="none"
-    document.getElementById("stop").style.display="inline-block"
-   }
-
-   function playsulthan() {
-    song7.play();
-    song7.setVolume(1)
-    song7.rate(1);
-    song1.stop()
-    song2.stop()
-    song3.stop()
-    song4.stop()
-    song5.stop()
-    song6.stop()
-    song8.stop()
-    song9.stop()
-    song10.stop()
-    document.getElementById("play").style.display="none"
-    document.getElementById("stop").style.display="inline-block"
-   }
-
-   function playMonster() {
-    song8.play();
-    song8.setVolume(1)
-    song8.rate(1);
-    song1.stop()
-    song2.stop()
-    song3.stop()
-    song4.stop()
-    song5.stop()
-    song6.stop()
-    song7.stop()
-    song9.stop()
-    song10.stop()
-    document.getElementById("play").style.display="none"
-    document.getElementById("stop").style.display="inline-block"
-   }
-
-   function playToofan() {
-    song9.play();
-    song9.setVolume(1)
-    song9.rate(1);
-    song1.stop()
-    song2.stop()
-    song3.stop()
-    song4.stop()
-    song5.stop()
-    song6.stop()
-    song7.stop()
-    song8.stop()
-    song10.stop()
-    document.getElementById("play").style.display="none"
-    document.getElementById("stop").style.display="inline-block"
-   }
-
-   function playrangsa() {
-    song10.play();
-    song10.setVolume(1)
-    song10.rate(1);
-    song1.stop()
-    song2.stop()
-    song3.stop()
-    song4.stop()
-    song5.stop()
-    song6.stop()
-    song7.stop()
-    song8.stop()
-    song9.stop()
-    document.getElementById("play").style.display="none"
-    document.getElementById("stop").style.display="inline-block"
-   }
-
+   function playDetalli() {
+       song2.play();
+       song2.setVolume(1)
+       song2.rate(1);
+       song1.stop()
+       song3.stop()
+       song4.stop()
+       song5.stop()
+       song6.stop()
+       song7.stop()
+       song8.stop()
+       song9.stop()
+       song10.stop()
+       document.getElementById("play").style.display="none"
+       document.getElementById("stop").style.display="inline-block"
+      }
+      function playfire() {
+       song3.play();
+       song3.setVolume(1)
+       song3.rate(1);
+       song1.stop()
+       song2.stop()
+       song4.stop()
+       song5.stop()
+       song6.stop()
+       song7.stop()
+       song8.stop()
+       song9.stop()
+       song10.stop()
+       document.getElementById("play").style.display="none"
+       document.getElementById("stop").style.display="inline-block"
+      }
    
-
-
-
-
-
+      function playfriends() {
+       song4.play();
+       song4.setVolume(1)
+       song4.rate(1);
+       song1.stop()
+       song2.stop()
+       song3.stop()
+       song5.stop()
+       song6.stop()
+       song7.stop()
+       song8.stop()
+       song9.stop()
+       song10.stop()
+       document.getElementById("play").style.display="none"
+       document.getElementById("stop").style.display="inline-block"
+      }
    
+      function playharekrishna() {
+       song5.play();
+       song5.setVolume(1)
+       song5.rate(1);
+       song1.stop()
+       song2.stop()
+       song3.stop()
+       song4.stop()
+       song6.stop()
+       song7.stop()
+       song8.stop()
+       song9.stop()
+       song10.stop()
+       document.getElementById("play").style.display="none"
+       document.getElementById("stop").style.display="inline-block"
+      }
+   
+      function playQaafirana() {
+       song6.play();
+       song6.setVolume(1)
+       song6.rate(1);
+       song1.stop()
+       song2.stop()
+       song3.stop()
+       song4.stop()
+       song5.stop()
+       song7.stop()
+       song8.stop()
+       song9.stop()
+       song10.stop()
+       document.getElementById("play").style.display="none"
+       document.getElementById("stop").style.display="inline-block"
+      }
+   
+      function playsulthan() {
+       song7.play();
+       song7.setVolume(1)
+       song7.rate(1);
+       song1.stop()
+       song2.stop()
+       song3.stop()
+       song4.stop()
+       song5.stop()
+       song6.stop()
+       song8.stop()
+       song9.stop()
+       song10.stop()
+       document.getElementById("play").style.display="none"
+       document.getElementById("stop").style.display="inline-block"
+      }
+   
+      function playMonster() {
+       song8.play();
+       song8.setVolume(1)
+       song8.rate(1);
+       song1.stop()
+       song2.stop()
+       song3.stop()
+       song4.stop()
+       song5.stop()
+       song6.stop()
+       song7.stop()
+       song9.stop()
+       song10.stop()
+       document.getElementById("play").style.display="none"
+       document.getElementById("stop").style.display="inline-block"
+      }
+   
+      function playToofan() {
+       song9.play();
+       song9.setVolume(1)
+       song9.rate(1);
+       song1.stop()
+       song2.stop()
+       song3.stop()
+       song4.stop()
+       song5.stop()
+       song6.stop()
+       song7.stop()
+       song8.stop()
+       song10.stop()
+       document.getElementById("play").style.display="none"
+       document.getElementById("stop").style.display="inline-block"
+      }
+   
+      function playrangsa() {
+       song10.play();
+       song10.setVolume(1)
+       song10.rate(1);
+       song1.stop()
+       song2.stop()
+       song3.stop()
+       song4.stop()
+       song5.stop()
+       song6.stop()
+       song7.stop()
+       song8.stop()
+       song9.stop()
+       document.getElementById("play").style.display="none"
+       document.getElementById("stop").style.display="inline-block"
+      }
+   
+      
+   
+   
+   
+   
+   
+      
